@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Editor from './Editor'
 import { parseJSON2JS } from '../utils/parsers'
+import CopyButton from './CopyButton'
 
 const Split = () => {
   const [json, setJson] = useState('')
@@ -10,13 +11,9 @@ const Split = () => {
   useEffect(() => {
     const res = parseJSON2JS(json)
     if (res) {
-      console.log('ajaj')
       setJS(res)
     }
   }, [json])
-
-  console.log('Dante: Split -> json', json)
-  console.log('Dante: Split -> js', js)
 
   return (
     <Container>
@@ -26,6 +23,8 @@ const Split = () => {
           onChange={value => setJson(value)}
           value={json}
           name="left"
+          showGutter={true}
+          enableBasicAutocompletion={true}
           placeholder="Put your JSON here"
           theme="github"
           fontSize={15}
@@ -42,20 +41,26 @@ const Split = () => {
           mode="javascript"
         />
       </Right>
+      <CopyButton />
     </Container>
   )
 }
 
 const Container = styled.div`
   display: flex;
+  box-shadow: 0px 0px 0px 1px #e8e8e8;
 `
 
 const Left = styled.div`
-  border: 1px solid red;
   width: 50%;
+  & > div {
+    height: calc(100vh - 20px) !important;
+  }
 `
 const Right = styled.div`
-  border: 1px solid blue;
   width: 50%;
+  & > div {
+    height: calc(100vh - 20px) !important;
+  }
 `
 export default Split

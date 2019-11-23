@@ -6,7 +6,6 @@ export const parseJSON2JS = jsonValue => {
     const code = stringify(parsed, null, '  ')
     return code
   } catch (error) {
-    console.log('Dante: parseJSON2JS -> error', error)
     return null
   }
 }
