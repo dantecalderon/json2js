@@ -41,5 +41,7 @@ import 'ace-builds/src-noconflict/mode-javascript'
 // import 'ace-builds/src-noconflict/theme-tomorrow_night_eighties'
 import 'ace-builds/src-noconflict/theme-github'
 
-const Editor = styled(AceEditor).attrs({})``
+const Editor = styled(AceEditor).attrs({})`
+  width: 100% !important;
+`
 export default Editor

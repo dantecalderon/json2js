@@ -52,8 +52,10 @@ const Container = styled.div`
 
 const Left = styled.div`
   border: 1px solid red;
+  width: 50%;
 `
 const Right = styled.div`
   border: 1px solid blue;
+  width: 50%;
 `
 export default Split
